@@ -1,15 +1,18 @@
 name: 🚀 Deploy website on push
 
-on:
+on: 
   push:
-    branches: [ master ]
+    branches: 
+      - master
 
 jobs:
    web-deploy:
+    name: 🎉 Deploy
     runs-on: ubuntu-latest
 
     steps:
-      - uses: 🚚 Get latest code
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v3
 
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
@@ -18,3 +21,9 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           password: ${{ secrets.SERVER_PASSWORD }}
           server-dir: www/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            LICENSE
+            README.md
+            index.txt
