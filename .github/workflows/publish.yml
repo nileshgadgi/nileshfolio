@@ -1,7 +1,7 @@
 name: 🚀 Deploy website on push
 
-on: push
-  # push:
+on: 
+  push:
     # branches: 
     #   - master
 
