@@ -1,12 +1,13 @@
 name: 🚀 Deploy website on push
 
-on:
-  push:
+on: push
+  # push:
     # branches: 
     #   - master
 
 jobs:
    web-deploy:
+    name: 🎉 Deploy
     runs-on: ubuntu-latest
 
     steps:
@@ -20,3 +21,9 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           password: ${{ secrets.SERVER_PASSWORD }}
           server-dir: www/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            LICENSE
+            README.md
+            index.txt
